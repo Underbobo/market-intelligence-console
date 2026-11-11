@@ -1,5 +1,58 @@
-<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>市场情报驾驶舱</title>
-<style>body{margin:0;background:#f7f7fc;font:16px system-ui,sans-serif;color:#25213c;min-height:100vh;display:grid;place-items:center}main{background:white;border:1px solid #eae7f2;border-radius:18px;padding:40px;max-width:420px;text-align:center;box-shadow:0 12px 40px #40286810}p{color:#777184;line-height:1.8}a{display:inline-block;padding:12px 24px;background:#7851eb;color:white;text-decoration:none;border-radius:8px}</style></head>
-<body><main><h1>市场情报驾驶舱</h1><p>正在连接工作空间。<br>请使用网站账号和密码登录。</p><a id="open" href="#">打开驾驶舱</a><p><small>连接暂时不可用时，请稍后刷新此固定入口。</small></p></main>
-<script>const target="https://beneath-brunette-breach-premier.trycloudflare.com";const destination=target+location.search+location.hash;document.getElementById('open').href=destination;location.replace(destination);</script></body></html>
+<!doctype html><html lang="zh-CN" class="pages-loading"><head><meta name="market-api" content="https://beneath-brunette-breach-premier.trycloudflare.com"><style>html.pages-loading .app-shell{visibility:hidden}</style><script src="./pages-bridge.js?v=20261111-pages"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>市场情报驾驶舱</title><link rel="stylesheet" href="./styles.css?v=20260915-true-data4"><link rel="stylesheet" href="./market.css?v=20261015-export-notes1"><link rel="stylesheet" href="./monitor.css?v=20261025-market"></head><body class="market-app pince-layout" data-section="feigua">
+<div class="app-shell">
+<aside id="primarySidebar" class="sidebar">
+  <div class="brand"><div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17V9m5 8V5m5 12v-6m5 6V3"/><path d="M3 21h18"/></svg></div><div><p class="brand-kicker">MARKET INTELLIGENCE</p><h1>市场情报驾驶舱</h1></div></div>
+  <nav class="nav" aria-label="主导航">
+    <span class="nav-section-title" data-nav-icon="◉">监控看板</span>
+    <button class="nav-item" data-section="monitor" aria-label="竞对监控看板"><span class="nav-glyph" aria-hidden="true">◉</span><span class="nav-text">竞对监控看板</span></button>
+    <button class="nav-item" data-section="market" aria-label="大盘看板"><span class="nav-glyph" aria-hidden="true">◉</span><span class="nav-text">大盘看板</span></button>
+    <span class="nav-section-title" data-nav-icon="▧">分析模板</span>
+    <button class="nav-item" data-section="research" aria-label="分析模板"><span class="nav-glyph" aria-hidden="true">▧</span><span class="nav-text">Skill 分析模板</span></button>
+    <button class="nav-item active" data-section="feigua" aria-label="飞瓜数据"><span class="nav-glyph" aria-hidden="true">▦</span><span class="nav-text">飞瓜数据</span><span class="nav-arrow">›</span></button>
+    <span class="nav-section-title" data-nav-icon="◎">竞品研究</span>
+    <button class="nav-item" data-section="competitors" aria-label="竞品追踪"><span class="nav-glyph" aria-hidden="true">◎</span><span class="nav-text">竞品追踪</span></button>
+    <span class="nav-section-title" data-nav-icon="▤">运行管理</span>
+    <button class="nav-item" data-section="collect" aria-label="常态采集"><span class="nav-glyph" aria-hidden="true">↗</span><span class="nav-text">常态采集</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="jobs" aria-label="任务记录"><span class="nav-glyph" aria-hidden="true">≡</span><span class="nav-text">任务记录</span><span class="nav-arrow">›</span></button>
+  </nav>
+  <div class="market-sidebar-footer lan-workspace"><div class="workspace-label"><span class="live-dot"></span><strong>市场研究工作空间</strong><span class="lan-badge">密码访问</span></div><span class="lan-description">内网直连 · 公网使用网站账号登录</span><a class="lan-address" href="https://underbobo.github.io/market-intelligence-console/" target="_blank" rel="noopener" title="打开公网固定入口">公网固定入口 <span aria-hidden="true">↗</span></a></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div class="topbar-location"><button id="sidebarToggle" class="icon-button" aria-label="收起导航" aria-expanded="true">☰</button><span class="breadcrumb">市场情报 <i>/</i></span><h2 id="pageTitle">飞瓜数据</h2></div><div class="topbar-actions"><span id="connectionStatus" role="status">正在连接…</span><button id="themeToggle" class="icon-button" aria-label="切换深浅主题" title="切换深浅主题">◐</button><span class="workspace-avatar" aria-hidden="true">研</span></div></header>
+  <div class="market-intro"><div><span class="eyebrow">RESEARCH WORKSPACE</span><h2 id="workspaceTitle">飞瓜数据工作台</h2><p id="workspaceDescription">从类目趋势到品牌竞争，把市场研究沉淀为可复用的采集任务。</p></div><span class="source-label"><span class="live-dot"></span> 飞瓜数据源</span></div>
+  <div id="marketOverview" class="market-overview" aria-label="工作空间概览">
+    <article><span class="overview-icon">▦</span><div><span>已保存任务</span><strong id="statTasks">—</strong><small>已保存的研究配置</small></div></article>
+    <article><span class="overview-icon">⇩</span><div><span>可下载文件</span><strong id="statFiles">—</strong><small>已保存任务的可下载文件</small></div></article>
+    <article><span class="overview-icon">⌘</span><div><span>类目目录</span><strong id="statCategories">—</strong><small>支持多级类目与关键词搜索</small></div></article>
+    <article><span class="overview-icon">◷</span><div><span>运行与排队</span><strong id="statRunning">—</strong><small id="statRunningHint">正在读取任务状态</small></div></article>
+  </div>
+<section id="feigua" class="section active">
+          <div class="panel pince-panel">
+            <div class="pince-heading"><div><span class="eyebrow">飞瓜品策</span><h3>自定义采集</h3><p>按需选择数据，批量下载 Excel。</p></div><span class="badge">仅手动运行</span></div>
+            
+            <form id="pinceForm">
+              <fieldset><legend>1 · 选择采集内容</legend><div id="pinceModules" class="pince-options"></div><small>各模块使用平台默认完整导出，不修改网页字段设置。</small></fieldset><div class="pince-form-grid">
+                <label>任务名称<input name="title" placeholder="留空则根据类目和时间自动命名" maxlength="80"></label>
+                <label>时间口径<select name="period_type"><option value="month">自然月（完整月）</option><option value="year">完整年度</option><option value="quarter">完整季度</option><option value="half">完整半年</option><option value="ytd">当年 YTD · 截至昨日</option><option value="ytm">当年 YTM · 截至上月末</option></select></label>
+                <label>类目 · 每行一个<textarea name="categories" rows="4" placeholder="抹茶粉&#10;食品饮料>水饮冲调>冲饮谷物>抹茶粉" required></textarea><small>同名类目请填完整路径；每个类目单独导出。</small></label>
+                <label>采集时间 · 每行一个<textarea name="periods" rows="4" placeholder="2026-08&#10;2026-07" required></textarea><span class="pince-shortcuts"><button type="button" class="chip" data-pince-period="last">上一周期</button><button type="button" class="chip" data-pince-period="three">近三个周期</button><button type="button" class="chip" data-pince-period="six">近六个周期</button></span><small>自然月 YYYY-MM；年度 YYYY；季度 YYYY-Q1；半年 YYYY-H1。只采集已结束周期。</small></label>
+              </div>
+              
+              <div id="pinceFieldPanel" hidden><div id="pinceFields"></div></div>
+              
+              
+              <div class="pince-submit"><strong id="pinceEstimate">选择类目与时间</strong><button class="button" type="submit">保存自定义任务</button></div>
+              <p id="pinceStatus" role="status" aria-live="polite">正在加载品策配置…</p>
+            </form>
+            <div class="pince-saved-head"><h3>自定义任务</h3><span class="muted">仅在此管理，不加入常态化采集任务</span></div><button type="button" id="pinceRefreshResults" class="button secondary">刷新任务与下载结果</button><div id="pinceTasks" class="task-grid"></div>
+          </div>
+        </section>
+<section id="monitor" class="section"></section>
+<section id="market" class="section"></section>
+<section id="research" class="section"></section>
+<section id="competitors" class="section"><div class="page-header"><div><h3>竞品追踪</h3><p>飞瓜电商 · 搜索品牌并查看竞品经营数据</p></div><a class="button" href="https://www.bigdatavoice.com/app/#/export-manage/index" target="_blank" rel="noopener">打开飞瓜电商 ↗</a></div><div class="panel competitor-guide"><h3>品牌查询</h3><p>在飞瓜左上角搜索品牌名称，找到「品牌」分组中的匹配结果，点击进入品牌详情。</p><div class="competitor-example"><span>示例品牌</span><strong>SENSODYNE / 舒适达</strong><span>个护家清</span></div><p class="muted">当前尚未连接品牌详情数据。登录飞瓜后可继续配置追踪内容。</p></div></section>
+<section id="collect" class="section"><div class="page-header"><div><h3>常态采集</h3><p>近一个月数据采集、飞书补缺上传与回读核对。</p></div></div><div id="feiguaTaskStatus" class="panel" role="status"></div><div id="feiguaTaskGrid" class="task-grid"></div></section>
+<section id="jobs" class="section"><div class="page-header"><h3>任务记录</h3><button class="button secondary" id="refreshJobs">刷新</button></div><div id="jobList"></div><button id="moreJobs" class="button secondary" hidden>显示更多记录</button></section></main></div>
+<dialog id="runDialog"><form method="dialog"><h3 id="runTitle"></h3><p id="runDescription"></p><p id="runStatus" role="status"></p><div class="task-actions"><button type="button" class="button" id="normalRun">确认运行</button><button class="button ghost">关闭</button></div></form></dialog>
+<dialog id="logDialog"><h3>运行日志</h3><pre id="logContent"></pre><form method="dialog"><button class="button">关闭</button></form></dialog><div id="toast" role="status" hidden></div>
+<script src="./shell.js?v=20261111-login"></script><script src="./price-bands.js?v=20260915-true-data4"></script><script src="./feigua.js?v=20261015-quarter-fallback3"></script><script src="./competitors.js?v=20260916-multibrand"></script><script src="./research.js?v=20261015-auto-yoy2"></script><script src="./audience.js?v=20261015-rebuild2"></script><script src="./research-rebuild.js?v=20261015-auto-yoy1"></script><script src="./research-cloud.js?v=20261015-compact1"></script><script src="./monitor.js?v=20261025-market"></script></body></html>
