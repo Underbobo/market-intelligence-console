@@ -375,3 +375,23 @@ html[data-theme=dark]{--mi-bg:#151923;--mi-accent:#ad9bff;--mi-soft:#302b48;--mi
 #research .template-record-actions{gap:8px}
 
 .task-downloads .export-skip-item{display:block;margin:6px 0;white-space:normal;line-height:1.5;}
+
+/* Monthly report setup shares the workspace's form and table rhythm. */
+#monthly .template-editor-heading{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#monthly .template-editor-heading h3{margin:0 auto 0 0}
+#monthly h3{margin:0 0 16px;font-size:15px}
+#monthly p,#monthly small{line-height:1.8}
+#monthly .pince-form-grid{gap:20px 24px;margin:18px 0 22px}
+#monthly .pince-form-grid>label{display:flex;flex-direction:column;gap:10px;font-size:12px;color:var(--mi-muted,#82788e)}
+#monthly .pince-form-grid>label[hidden]{display:none}
+#monthly .pince-category-select>label{display:block!important;margin:0 0 10px;font-size:12px;color:var(--mi-muted,#82788e)}
+#monthly .pince-category-trigger{min-height:36px}
+#monthly .template-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#monthly .table-wrap{overflow-x:auto}
+#monthly .data-table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.8}
+#monthly .data-table th{text-align:left;font-weight:500;color:var(--mi-muted,#82788e);background:var(--mi-soft,#f8f6fc);padding:12px 14px}
+#monthly .data-table td{padding:14px;border-bottom:1px solid var(--mi-line,#eee9f5);vertical-align:top}
+#monthly .data-table td:first-child{font-weight:500;min-width:125px}
+#monthly .task.research-row{padding:18px;border:1px solid var(--mi-line,#eee9f5);border-radius:8px;margin-top:12px}
+#monthly [data-monthly-status]{font-size:12px;color:var(--mi-muted,#82788e)}
+@media(max-width:700px){#monthly .pince-form-grid{grid-template-columns:1fr}#monthly .data-table td,#monthly .data-table th{padding:10px 8px}#monthly .data-table td:first-child{min-width:90px}}
