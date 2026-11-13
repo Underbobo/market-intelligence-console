@@ -1,5 +1,15 @@
 (()=>{
 const root=document.getElementById('monthly');if(!root)return;
+const research=document.getElementById('research');let selectMonthly;
+if(research){
+ const standard=document.createElement('div');standard.className='research-standard-view';
+ while(research.firstChild)standard.append(research.firstChild);
+ const tabs=document.createElement('div');tabs.className='research-mode-tabs';tabs.setAttribute('aria-label','分析模板类型');
+ tabs.innerHTML='<button type="button" class="active" data-research-mode="standard">类目研究与 PPT</button><button type="button" data-research-mode="monthly">品牌月度复盘 Skill</button>';
+ root.classList.remove('section');root.hidden=true;research.append(tabs,standard,root);
+ selectMonthly=monthly=>{root.hidden=!monthly;standard.hidden=monthly;tabs.querySelectorAll('button').forEach(b=>{b.classList.toggle('active',(b.dataset.researchMode==='monthly')===monthly);b.setAttribute('aria-pressed',String((b.dataset.researchMode==='monthly')===monthly));});if(monthly)window.dispatchEvent(new Event('research-monthly-selected'));const url=new URL(location.href);url.searchParams.set('section','research');if(monthly)url.searchParams.set('template','brand_monthly');else url.searchParams.delete('template');history.replaceState(null,'',url);};
+ tabs.onclick=e=>{const b=e.target.closest('[data-research-mode]');if(b)selectMonthly(b.dataset.researchMode==='monthly');};
+}
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let loaded=false,picker;
 root.innerHTML=`<section class="panel" style="padding:24px"><div class="template-editor-heading"><h3>品牌月度复盘</h3><span class="badge">Monthly Report Skill</span><a class="button secondary" href="/api/monthly-report-skill/reference" target="_blank" rel="noopener">查看34图参考样板</a></div><p class="muted">市场态势、品牌经营、人群与店铺的月度复盘。主要交付为交互图表和 Excel 底表，与现有 PPT 模板独立。</p><small>当前已接入参考样板、时间口径和采集计划。7模块自动采集仍需逐项适配与验收，不会把参考数据标成新月份报告。</small></section>
@@ -24,6 +34,8 @@ async function submit(action){if(!form.reportValidity())return;const buttons=for
 form.onsubmit=e=>{e.preventDefault();submit('save');};root.querySelector('[data-monthly-plan]').onclick=()=>submit('plan');
 root.querySelector('[data-monthly-drafts]').onclick=async e=>{const b=e.target.closest('[data-monthly-load]');if(!b)return;try{fill(await api('/api/monthly-report-skill/drafts/'+b.dataset.monthlyLoad));form.scrollIntoView({behavior:'smooth'});}catch(error){showToast(error.message);}};
 try{picker=window.mountPinceCategories?.(form);}catch{}
-window.addEventListener('market-section-changed',()=>{if(state.section==='monthly')load();});
-if(new URLSearchParams(location.search).get('section')==='monthly')switchSection('monthly');
+window.addEventListener('research-monthly-selected',load);
+window.addEventListener('market-section-changed',()=>{if(state.section==='research'&&!root.hidden)load();});
+const query=new URLSearchParams(location.search);
+if(query.get('section')==='monthly'||query.get('template')==='brand_monthly'){switchSection('research');selectMonthly?.(true);}
 })();
